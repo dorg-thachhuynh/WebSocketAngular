@@ -54,7 +54,7 @@ export class NavbarComponent implements OnInit {
         this.notifyService.subscribe();
         this.notifyService.receive().subscribe((data) => {
             if (this.account && this.account.login === data.userId) {
-                if (data.isLogout){
+                if (data.isLogout) {
                     this.totalNotification = 0;
                 } else {
                     this.totalNotification = this.totalNotification + data.total;
@@ -118,6 +118,6 @@ export class NavbarComponent implements OnInit {
         } else {
             userId = 'admin';
         }
-        this.notifyService.sendActivity(-1 ,userId);
+        this.notifyService.sendActivity(-1, userId);
     }
 }

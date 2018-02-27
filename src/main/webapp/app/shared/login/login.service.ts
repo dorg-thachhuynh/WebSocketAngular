@@ -30,7 +30,6 @@ export class LoginService {
                     }
                     this.trackerService.sendActivity();
                     resolve(data);
-                    
                     this.notifyService.sendActivity(0);
                 });
                 return cb();
