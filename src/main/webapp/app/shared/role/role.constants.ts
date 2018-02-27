@@ -1,11 +1,5 @@
-/*
-    Languages codes are ISO_639-1 codes, see http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
-    They are written in English to avoid character encoding issues (not a perfect solution)
-*/
-export const OUTBOUND_ROLES: string[] = [
+export const ROLES: string[] = [
     'ROLE_ADMIN',
-    'ROLE_BUYER',
-    'ROLE_SELLER',
-    'ROLE_OUTBOUND_STAFF'
+    'ROLE_USER'
     // jhipster-needle-i18n-language-constant - JHipster will add/remove languages in this array
 ];
