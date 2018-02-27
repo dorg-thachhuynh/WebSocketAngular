@@ -57,7 +57,7 @@ export class NavbarComponent implements OnInit {
                 if (data.isLogout){
                     this.totalNotification = 0;
                 } else {
-                    this.totalNotification = data.total;
+                    this.totalNotification = this.totalNotification + data.total;
                 }
             }
         });
@@ -96,20 +96,28 @@ export class NavbarComponent implements OnInit {
     }
 
     increaseTotal() {
-        const total = this.totalNotification + 1;
+        let userId = '';
         if (!this.account && this.isAuthenticated()) {
             this.account = this.principal.getAccountLogin();
         }
-        const userId = this.account.login;
-        this.notifyService.sendActivity(total, userId);
+        if (this.account.login === 'admin') {
+            userId = 'user';
+        } else {
+            userId = 'admin';
+        }
+        this.notifyService.sendActivity(1, userId);
     }
 
     decreaseTotal() {
-        const total = this.totalNotification - 1;
+        let userId = '';
         if (!this.account && this.isAuthenticated()) {
             this.account = this.principal.getAccountLogin();
         }
-        const userId = this.account.login;
-        this.notifyService.sendActivity(total, userId);
+        if (this.account.login === 'admin') {
+            userId = 'user';
+        } else {
+            userId = 'admin';
+        }
+        this.notifyService.sendActivity(-1 ,userId);
     }
 }
